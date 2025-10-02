@@ -1,9 +1,9 @@
 import React from 'react'
 
-const landingPage = () => {
+const LandingPage = () => {
   return (
     <div>landingPage</div>
   )
 }
 
-export default landingPage
+export default LandingPage
