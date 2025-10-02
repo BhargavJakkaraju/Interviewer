@@ -3,8 +3,8 @@
 
 @theme {
     --font-display: "Urbanist";
-    --breakpoint-3xl: 1920px;|
-    --color-primary: #FF9324
+    --breakpoint-3xl: 1920px;
+    --color-primary: #FF9324;
 }
 
 @layer base {

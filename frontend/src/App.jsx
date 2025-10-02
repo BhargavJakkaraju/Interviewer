@@ -8,10 +8,6 @@ import LandingPage from './pages/landingPage';
 import Dashboard from './pages/home/DashBoard';
 import InterviewPrep from './pages/interviewPrep/InterviewPrep';
 
-
-
-
-
 const App = () => {
   return (
     <div>
@@ -24,6 +20,15 @@ const App = () => {
           <Route path="/interview-prep/:sesssionId" element={<InterviewPrep />} />
         </Routes>
       </Router>
+
+      <Toaster
+      toastOptions={{
+        className: "",
+        style: {
+          fontSize: "13px",
+        },
+      }}
+      />
     </div>
   )
 }
