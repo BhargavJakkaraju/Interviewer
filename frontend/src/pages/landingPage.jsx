@@ -6,7 +6,7 @@ import {LuSparkles} from 'react-icons/lu'
 const LandingPage = () => {
   const navigate = useNavigate();
 
-  const [openAuthModel, setOpenAuthModel] = useState(false);
+  const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("login");
 
   const handleCTA = () => {}
@@ -61,7 +61,7 @@ const LandingPage = () => {
       </div>
     </div>
 
-    <div className='w-full min-h-full relative z-10 mb-56'>
+    <div className='w-full min-h-full relative z-10'>
 
       <div className='w-full min-h-full bg-[#FFFCEF] mt-10'>
         <div className='container mx-auto px-4 pt-10 pb-20'>
@@ -104,6 +104,25 @@ const LandingPage = () => {
       </div>
 
     </div>
+
+    <Modal
+      isOpen={openAuthModal}
+      onClose ={() => {
+        setOpenAuthModal(false)
+        setCurrentPage("login")
+      }}
+      hideHeader
+    >
+      <div>
+        {currentPage === "login" && (
+          <Login currentPage={setCurrentPage}/>
+        )}
+        {currentPage === "SignUp" && (
+          <Login currentPage={setCurrentPage}/>
+        )}
+      </div>
+    </Modal>
+
 
    </> 
   )
