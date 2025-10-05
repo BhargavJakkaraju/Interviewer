@@ -35,6 +35,7 @@ const Login = ({setCurrentPage}) => {
         placeHolder="Minimum 8 Characters"
         type='password'
       />
+      
     </form>
   </div>
 }
