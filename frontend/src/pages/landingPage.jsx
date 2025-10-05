@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { APP_FEATURES } from '../utils/data'
 import { useNavigate } from 'react-router-dom'
 import {LuSparkles} from 'react-icons/lu'
+import Modal from '../components/Modal'
+import Login from './auth/Login'
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -122,8 +124,6 @@ const LandingPage = () => {
         )}
       </div>
     </Modal>
-
-
    </> 
   )
 }
