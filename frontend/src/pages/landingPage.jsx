@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import {LuSparkles} from 'react-icons/lu'
 import Modal from '../components/Modal'
 import Login from './auth/Login'
+import SignUp from './auth/SignUp'
 
 const LandingPage = () => {
   const navigate = useNavigate();
@@ -121,7 +122,7 @@ const LandingPage = () => {
       )}
 
       {currentPage === "signup" && (
-        <Login setCurrentPage={setCurrentPage} />
+        <SignUp setCurrentPage={setCurrentPage} />
       )}
       </div>
     </Modal>
