@@ -28,7 +28,19 @@ const SignUp = ({setCurrentPage}) => {
     }
 
     if(!password) {
-      setError("")
+      setError("Enter a valid password")
+      return
+    }
+
+    setError("")
+
+    try{
+    } catch(error) {
+      if(error.response && error.response.data.message) {
+        setError(error.response.data.message)
+      } else {
+        setError("Something went wrong please try again")
+      }
     }
   }
 
