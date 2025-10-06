@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import Input from '../../components/inputs/Input';
+import { validateEmail } from '../../utils/helper';
 
 
 const SignUp = ({setCurrentPage}) => {
@@ -15,6 +16,20 @@ const SignUp = ({setCurrentPage}) => {
 
   const handleSignUp = async (e) => {
     e.preventDefault()
+
+    if (!fullName) {
+      setError("Enter your full name")
+      return
+    }
+
+    if (!validateEmail(email)) {
+      setError("Enter valid email address")
+      return
+    }
+
+    if(!password) {
+      setError("")
+    }
   }
 
   return <div className='w-[90vm] md:w-[33vm] p-7 flex flex-col justify-center'>
