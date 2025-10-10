@@ -49,7 +49,7 @@ const loginUser = async (req, res) => {
             return res.status(400).json({ message: "Invalid Password"})
         }
 
-        res.status(201).json({
+        res.status(200).json({
             _id: user._id,
             name: user.name,
             email: user.email,
@@ -62,6 +62,17 @@ const loginUser = async (req, res) => {
 }
 
 const getUserProfile = async (req, res) => {
+    try{ 
+        const user = await User.findById(req.user.id).select('-password')
+        if (!user) {
+            return res.status(404).json({ message: "User does not exist"})
+        }
+
+        res.json(user)
+    } catch(error) {
+        res.status(500).json({ message: "Internal Server Error", error})
+    }
+   
 
 }
 

@@ -1,9 +1,9 @@
 const jwt = require('jsonwebtoken')
-const user = require('../models/User')
+const User = require('../models/User')
 
 const protect = async (req, res, next) => {
     try {
-        let token = req.header.authorization
+        let token = req.headers.authorization
 
         if (token && token.startsWith("Bearer")) {
             token = token.split(" ")[1];
@@ -14,7 +14,7 @@ const protect = async (req, res, next) => {
             res.status(401).json( {message: "Not authorized"})
         }
     }  catch (error) {
-        res.stats(401).json({message: "Token failed ", error: error.message})
+        res.status(401).json({message: "Token failed ", error: error.message})
     }
 }
 
