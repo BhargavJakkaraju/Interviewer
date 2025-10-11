@@ -5,6 +5,7 @@ const path = require("path");
 const connectDB = require("./config/db")
 
 const authRoutes = require('./routes/authRoutes')
+const sesionRoutes = require('./routes/sessionRoutes')
 
 const app = express();
 
