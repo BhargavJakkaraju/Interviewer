@@ -5,7 +5,7 @@ const path = require("path");
 const connectDB = require("./config/db")
 
 const authRoutes = require('./routes/authRoutes')
-const sesionRoutes = require('./routes/sessionRoutes')
+const sessionRoutes = require('./routes/sessionRoutes')
 
 const app = express();
 
@@ -23,7 +23,7 @@ connectDB()
 app.use(express.json());
 
 app.use('/api/auth', authRoutes);
-app.use('/api/session', sesionRoutes);
+app.use('/api/session', sessionRoutes);
 //app.use('/api/question', questionRoutes);
 //app.use('/api/ai/generate-questions', protect, generateInterviewQuestions)
 //app.use('/api/ai/generate-explanations', protect, generateConceptExplanation)
@@ -34,7 +34,7 @@ app.use('/api/session', sesionRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "uploads"), {}));
 
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
