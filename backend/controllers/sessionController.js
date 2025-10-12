@@ -37,7 +37,8 @@ exports.createSession = async (req, res) => {
 
 exports.getMySession = async (req, res) => {
     try {
-
+        const session = await Session.find({ user: req.user.id }).sort({ createdAt: -1 }).populate('questions')
+        res.status(200).json(session)
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Error "})
     }
