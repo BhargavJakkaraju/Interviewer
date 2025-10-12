@@ -58,7 +58,20 @@ exports.getSessionById = async (req, res) => {
 
 exports.deleteSession = async(req, res) => {
     try {
+        const session = await Session.findById(req.params.id)
 
+        if (!session) {
+            return res.status(404).json({ success: false, message: "Session not found"});
+        }
+
+        if (session.user.toString() !== req.user.id) {
+            return res.status(401).json({ message: "User does not own this session"});
+        }
+
+        await Question.deleteMany({ session: session._id});
+        await session.deleteOne();
+
+        res.status(200).json({ message: "Deleted Session"})
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Error "})
     }
