@@ -1,7 +1,6 @@
 const Session = require('../models/Session');
 const Question = require('../models/Question');
 
-
 exports.createSession = async (req, res) => {
     try {
         const { role, experience, topicsToFocus, description, questions } = req.body
@@ -13,7 +12,6 @@ exports.createSession = async (req, res) => {
             topicsToFocus,
             description,
             questions
-
         });
 
         const questionDocs = await Promise.all(
@@ -44,10 +42,15 @@ exports.getMySession = async (req, res) => {
     }
 }
 
-
 exports.getSessionById = async (req, res) => {
     try {
+        const session = await Session.findById(req.params.id).populate({ path: "questions", options: { sort: {isPinned: -1, createdAt: 1}}}).exec()
 
+        if (!session) {
+            return res.status(404).json({ success: false, message: "Session not found"})
+        }
+
+        res.status(200).json({ sucess: true, session })
     } catch (error) {
         res.status(500).json({ success: false, message: "Internal Server Error "})
     }
