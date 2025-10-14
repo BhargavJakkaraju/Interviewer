@@ -51,6 +51,19 @@ exports.togglePinQuestions = async (req, res) => {
 
 exports.updateQuestionNote = async (req, res) => {
     try {
+        const questionId = req.params.id 
+        const { note } = req.body
+
+        const question = await Question.findById(questionId)
+        if (!question) {
+            return res.status(404).json({ succes: false,  message: "Question not found"})
+        }
+
+        question.note = note || ""
+
+        await question.save()
+
+        res.status(200).json({ success: true, question})
 
     } catch( error) {
         res.status(500).json({ success: false,  message: "Internal Server error" })
