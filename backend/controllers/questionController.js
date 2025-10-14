@@ -34,7 +34,16 @@ exports.addQuestionsToSession = async (req, res) => {
 
 exports.togglePinQuestions = async (req, res) => {
     try {
+        const question = await Question.findById(req.params.id)
 
+        if (!question){
+            return res.status(404).json({ message: "Question not found"})
+        }
+
+        question.isPinned != question.isPinned
+        await question.save()
+
+        res.status(200).json({ success: true, question});
     } catch( error) {
         res.status(500).json({ success: false,  message: "Internal Server error" })
     }
