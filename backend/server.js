@@ -7,6 +7,7 @@ const connectDB = require("./config/db")
 const authRoutes = require('./routes/authRoutes')
 const sessionRoutes = require('./routes/sessionRoutes')
 const questionRoutes = require('./routes/questionRoutes')
+const { protect } = require('./middlewares/authMiddleware')
 
 const app = express();
 
@@ -26,8 +27,8 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api/session', sessionRoutes);
 app.use('/api/question', questionRoutes);
-//app.use('/api/ai/generate-questions', protect, generateInterviewQuestions)
-//app.use('/api/ai/generate-explanations', protect, generateConceptExplanation)
+app.use('/api/ai/generate-questions', protect, generateInterviewQuestions)
+app.use('/api/ai/generate-explanations', protect, generateConceptExplanation)
 
 
 
