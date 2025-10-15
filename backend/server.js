@@ -8,6 +8,7 @@ const authRoutes = require('./routes/authRoutes')
 const sessionRoutes = require('./routes/sessionRoutes')
 const questionRoutes = require('./routes/questionRoutes')
 const { protect } = require('./middlewares/authMiddleware')
+const { generateConceptExplanation, generateInterviewQuestions } = require('./controllers/aiController')
 
 const app = express();
 
