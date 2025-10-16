@@ -27,6 +27,11 @@ const generateInterviewQuestions = async (req, res) => {
     }
 }
 
-const generateConceptExplanation = async (req, res) => {}
+const generateConceptExplanation = async (req, res) => {
+    try {
 
+    }catch(error) {
+        res.status(500).json({ message: "Failed to generate questions", error: error.message})
+    }
+}
 module.exports = { generateConceptExplanation, generateInterviewQuestions}
