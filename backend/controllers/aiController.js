@@ -18,9 +18,7 @@ const generateInterviewQuestions = async (req, res) => {
         })
 
         let rawText = response.text
-
         const cleanedText = rawText.replace(/^```json\s*/, "").replace(/```$/, "").trim();
-
         const data = JSON.parse(cleanedText)
 
         res.status(200).json(data)
