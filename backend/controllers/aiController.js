@@ -46,8 +46,7 @@ const generateConceptExplanation = async (req, res) => {
         const data = JSON.parse(cleanedText)
 
         res.status(200).json(data)
-
-    
+        
     }catch(error) {
         res.status(500).json({ message: "Failed to generate questions", error: error.message})
     }
