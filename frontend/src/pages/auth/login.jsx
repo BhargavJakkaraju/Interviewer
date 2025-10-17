@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/inputs/Input';
 import { validateEmail } from '../../utils/helper';
+import axios from 'axios';
+import { API_PATHS } from '../../utils/apiPaths';
+import axiosInstance from '../../utils/axiosInstance';
 
 
 const Login = ({setCurrentPage}) => {
@@ -27,7 +30,10 @@ const Login = ({setCurrentPage}) => {
     setError("")
 
     try {
-      
+      const response = await axiosInstance.post(API_PATHS.AUTH.LOGIN, {
+        email, 
+        password
+      })
     } catch (error){
       if (error.response && error.response.data.message) {
         setError(error.response.data.message)
