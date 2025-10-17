@@ -27,6 +27,7 @@ const Login = ({setCurrentPage}) => {
     setError("")
 
     try {
+      
     } catch (error){
       if (error.response && error.response.data.message) {
         setError(error.response.data.message)
