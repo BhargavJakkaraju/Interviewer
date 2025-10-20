@@ -40,7 +40,7 @@ const UserProvider = ({ children }) => {
         setLoading(false)
     }
 
-    const clearUser = () => {
+    const clearuser = () => {
         setUser(null)
         localStorage.removeItem("token")
     }
