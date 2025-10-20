@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/inputs/Input';
 import { validateEmail } from '../../utils/helper';
 import axios from 'axios';
 import { API_PATHS } from '../../utils/apiPaths';
 import axiosInstance from '../../utils/axiosInstance';
+import { UserContext } from '../../context/UserContext';
 
 
 const Login = ({setCurrentPage}) => {
@@ -12,6 +13,7 @@ const Login = ({setCurrentPage}) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
+  const { updateUser } = useContext(UserContext)
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
@@ -39,6 +41,7 @@ const Login = ({setCurrentPage}) => {
 
       if (token) {
         localStorage.setItem("token", token)
+        updateUser(response.data)
         navigate('/dashboard')
       }
     } catch (error){
