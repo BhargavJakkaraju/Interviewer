@@ -40,6 +40,11 @@ const UserProvider = ({ children }) => {
         setLoading(false)
     }
 
+    const clearUser = () => {
+        setUser(null)
+        localStorage.removeItem("token")
+    }
+
     return (
         <UserContext.Provider value={{ user, loading, updateUser, clearuser}}>
             {children}
