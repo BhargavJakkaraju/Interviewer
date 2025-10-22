@@ -4,6 +4,8 @@ import Input from '../../components/inputs/Input';
 import { validateEmail } from '../../utils/helper';
 import { useContext } from 'react';
 import { UserContext } from '../../context/UserContext';
+import axiosInstance from '../../utils/axiosInstance';
+import { API_PATHS } from '../../utils/apiPaths';
 
 
 const SignUp = ({setCurrentPage}) => {
@@ -38,6 +40,19 @@ const SignUp = ({setCurrentPage}) => {
     setError("")
 
     try{
+      const response = await axiosInstance.post(API_PATHS.AUTH.REGISTER, {
+        name: fullName , 
+        email,
+        password,
+      })
+
+      const { token } = response.data
+
+      if (token) {
+        localStorage.setItem("token", token)
+        updateUser(response.data)
+        navigate('/dashboard')
+      }
     } catch(error) {
       if(error.response && error.response.data.message) {
         setError(error.response.data.message)
