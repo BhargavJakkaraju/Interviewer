@@ -1,18 +1,27 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { APP_FEATURES } from '../utils/data'
 import { useNavigate } from 'react-router-dom'
 import {LuSparkles} from 'react-icons/lu'
 import Modal from '../components/Modal'
 import Login from './auth/Login'
 import SignUp from './auth/SignUp'
+import { UserContext } from '../context/UserContext'
 
 const LandingPage = () => {
+  const {user} = useContext(UserContext)
   const navigate = useNavigate();
 
   const [openAuthModal, setOpenAuthModal] = useState(false);
   const [currentPage, setCurrentPage] = useState("login");
 
-  const handleCTA = () => {}
+  const handleCTA = () => {
+    if (!user) {
+      setOpenAuthModal(true)
+
+    } else {
+      navigate('/dashboard')
+    }
+  }
   return (
    <>
 
