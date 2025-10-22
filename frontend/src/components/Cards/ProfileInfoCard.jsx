@@ -12,6 +12,7 @@ const ProfileInfoCard = () => {
         navigate('/')
     }
   return (
+    user && 
     <div className='flex items-center'>
         <div>
             <div className='text-[15px] text-black font-bold loading-3'>
