@@ -6,7 +6,7 @@ import DashboardLayout from '../../components/layouts/DashboardLayout'
 
 const Dashboard = () => {
   return (
-    <DashboardLayout>dashboard</DashboardLayout>
+    <DashboardLayout>Dashboard</DashboardLayout>
   )
 }
 

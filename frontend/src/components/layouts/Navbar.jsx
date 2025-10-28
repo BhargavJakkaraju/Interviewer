@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import ProfileInfoCard from '../Cards/ProfileInfoCard'
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
+import { UserContext } from '../../context/UserContext'
 
 const Navbar = () => {
   return (
-    <div>Navbar</div>
-  )
+    <div className='h-16 bg-white border border-b border-gray-200/5 backdrop-blur-[2px] py-2.5 px-4 md:px-0 sticky top- z-30'>
+      <div className='container mx-auto flex items-center justify-between gap-5'> 
+        <Link to='/dashboard'>
+          <h2 className='text-lg md:text-xl font-medium text-black leading-5'>Landly</h2>
+        </Link>
+
+        <ProfileInfoCard />
+
+
+      </div>
+    </div>
+
+    
+
+
+  ) 
 }
 
 export default Navbar
