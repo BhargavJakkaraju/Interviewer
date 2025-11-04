@@ -5,7 +5,7 @@ import toast from "react-hot-toast"
 import DashboardLayout from '../../components/layouts/DashboardLayout'
 import { useNavigate } from 'react-router-dom'
 import { API_PATHS } from '../../utils/apiPaths'
-
+import SummaryCard from '../../components/Cards/SummaryCard'
 
 const Dashboard = () => {
   const navigate = useNavigate()
