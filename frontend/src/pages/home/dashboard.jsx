@@ -6,6 +6,7 @@ import DashboardLayout from '../../components/layouts/DashboardLayout'
 import { useNavigate } from 'react-router-dom'
 import { API_PATHS } from '../../utils/apiPaths'
 
+
 const Dashboard = () => {
   const navigate = useNavigate()
   const [openCreateModal, setOpenCreateModal] = useState(false)
