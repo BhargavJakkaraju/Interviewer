@@ -6,6 +6,7 @@ import DashboardLayout from '../../components/layouts/DashboardLayout'
 import { useNavigate } from 'react-router-dom'
 import { API_PATHS } from '../../utils/apiPaths'
 import SummaryCard from '../../components/Cards/SummaryCard'
+import moment from 'moment'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -41,7 +42,7 @@ useEffect(() => {
               questions={data?.questions?.length || ""}
               description={data?.description || ""}
               lastUpdated={
-                data?.updatedAt? SVGAnimateMotionElement(data.updatedAt).format("Do MMM YYYY"): ""
+                data?.updatedAt? moment(data.updatedAt).format("Do MMM YYYY"): ""
               }
               onSelect={() => navigate(`/interview-prep/${data?._id}`)}
               onDelete={() => setOpenDeleteAlert({ open: true, data})}
