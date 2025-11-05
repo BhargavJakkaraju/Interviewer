@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AiOutlineLoading3Quarters } from 'react-icons/ai'
+import toast from 'react-hot-toast'
 import Input from '../../components/inputs/Input'
 import axiosInstance from '../../utils/axiosInstance'
 import { API_PATHS } from '../../utils/apiPaths'
 
-const CreateSessionForm = () => {
+const CreateSessionForm = ({ onClose }) => {
     const [formData, setFormData] = useState({
         role: "",
         experience: "",
@@ -54,13 +55,17 @@ const CreateSessionForm = () => {
             })
 
             if (response.data?.session._id) {
+                toast.success('Session created successfully!')
+                if (onClose) onClose()
                 navigate(`/interview-prep/${response.data?.session?._id}`)
             }
         } catch (error) {
             if (error.response && error.response.data.message) {
                 setError(error.response.data.message)
+                toast.error(error.response.data.message)
             } else {
                 setError("Error, Please Try Again")
+                toast.error("Failed to create session")
             }
         } finally {
             setIsLoading(false)

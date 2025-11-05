@@ -26,6 +26,21 @@ const Dashboard = () => {
       setSessions(response.data)
     } catch (error) {
       console.error('Error', error)
+      toast.error('Failed to fetch sessions')
+    }
+  }
+
+  const handleDeleteSession = async () => {
+    try {
+      const sessionId = openDeleteAlert.data?._id
+      await axiosInstance.delete(API_PATHS.SESSION.DELETE(sessionId))
+      
+      toast.success('Session deleted successfully')
+      setOpenDeleteAlert({ open: false, data: null })
+      fetchAllSessions()
+    } catch (error) {
+      console.error('Delete Error:', error)
+      toast.error('Failed to delete session')
     }
   }
 
@@ -68,7 +83,36 @@ const Dashboard = () => {
         hideHeader
       >
         <div>
-          <CreateSessionForm/>
+          <CreateSessionForm onClose={() => setOpenCreateModal(false)} />
+        </div>
+      </Modal>
+
+      <Modal
+        isOpen={openDeleteAlert.open}
+        onClose={() => {
+          setOpenDeleteAlert({ open: false, data: null })
+        }}
+        title="Delete Session"
+      >
+        <div className='p-6'>
+          <p className='text-sm text-gray-700 mb-6'>
+            Are you sure you want to delete the session for <span className='font-semibold text-gray-900'>"{openDeleteAlert.data?.role}"</span>? This action cannot be undone and will delete all associated questions.
+          </p>
+          
+          <div className='flex justify-end gap-3'>
+            <button
+              onClick={() => setOpenDeleteAlert({ open: false, data: null })}
+              className='px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors'
+            >
+              Cancel
+            </button>
+            <button
+              onClick={handleDeleteSession}
+              className='px-4 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-md transition-colors'
+            >
+              Delete Session
+            </button>
+          </div>
         </div>
       </Modal>
     </DashboardLayout>
