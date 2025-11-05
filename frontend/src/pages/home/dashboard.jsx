@@ -8,6 +8,8 @@ import { API_PATHS } from '../../utils/apiPaths'
 import axiosInstance from '../../utils/axiosInstance'
 import SummaryCard from '../../components/Cards/SummaryCard'
 import moment from 'moment'
+import CreateSessionForm from './CreateSessionForm'
+import Modal from '../../components/Modal'
 
 const Dashboard = () => {
   const navigate = useNavigate()
@@ -57,6 +59,18 @@ const Dashboard = () => {
           Add New
         </button>
       </div>
+
+      <Modal
+        isOpen={openCreateModal}
+        onClose={() => {
+          setOpenCreateModal(false)
+        }}
+        hideHeader
+      >
+        <div>
+          <CreateSessionForm/>
+        </div>
+      </Modal>
     </DashboardLayout>
   )
 }

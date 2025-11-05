@@ -24,7 +24,7 @@ const SummaryCard = ({
       <div className='flex items-start gap-3'>
         <div className='flex-shrink-0'>
           <span className='flex items-center justify-center w-10 h-10 bg-white/90 rounded-full text-sm font-semibold text-gray-800'>
-            GU
+            Role
           </span>
         </div>
 
