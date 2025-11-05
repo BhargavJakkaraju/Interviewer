@@ -66,6 +66,24 @@ const CreateSessionForm = () => {
             type='text'
         />
 
+        <Input
+            value={formData.description}
+            onChange={({ target }) => handleChange("role", target.value)}
+            label="Description"
+            placeHolder='Specifc Goals'
+            type='text'
+        /> 
+
+        {error && <p className=''> {error}</p>}
+
+        <button 
+            type="submit"
+            className=""
+            disabled={isLoading}
+        >
+            Create Session
+        </button>
+
     </form>
   </div>
 }
