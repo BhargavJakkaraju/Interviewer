@@ -49,6 +49,15 @@ const CreateSessionForm = () => {
             placeHolder='Frontend dev, Backend dev, etc. '
             type='text'
         />
+
+        <Input
+            value={formData.experience}
+            onChange={({ target }) => handleChange("role", target.value)}
+            label="Years of Experience"
+            placeHolder='1 year, 2 year, 3+ years'
+            type='number'
+        />
+
     </form>
   </div>
 }
