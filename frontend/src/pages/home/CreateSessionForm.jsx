@@ -10,8 +10,8 @@ const CreateSessionForm = () => {
         description: "",
     })
 
-    cosnt [isLoading, setIsLoading] = useState(false)
-    const [error,, setError] = useState(null)
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     const navigate = useNavigate();
 
@@ -40,6 +40,16 @@ const CreateSessionForm = () => {
     <p className=''>
         Fill out the following fields
     </p>
+
+    <form onSubmit={handleCreateSession} className=''>
+        <Input
+            value={formData.role}
+            onChange={({ target }) => handleChange("role", target.value)}
+            label="Target Role"
+            placeHolder='Frontend dev, Backend dev, etc. '
+            type='text'
+        />
+    </form>
   </div>
 }
 
