@@ -32,7 +32,8 @@ const registerUser = async (req, res) => {
             token: generateToken(user._id)
         })
     } catch (error) {
-        res.status(500).json({ message: "Server Error", error})
+        console.error("Register Error:", error)
+        res.status(500).json({ message: "Server Error", error: error.message })
     }
 }
 
@@ -53,24 +54,26 @@ const loginUser = async (req, res) => {
             _id: user._id,
             name: user.name,
             email: user.email,
-            token: generateToken(user.id)
+            token: generateToken(user._id)
         })
     } catch(error) {
-        res.status(500).json({ message: "Internal Server Error", error})
+        console.error("Login Error:", error)
+        res.status(500).json({ message: "Internal Server Error", error: error.message })
     }
 
 }
 
 const getUserProfile = async (req, res) => {
     try{ 
-        const user = await User.findById(req.user.id).select('-password')
+        const user = await User.findById(req.user._id).select('-password')
         if (!user) {
             return res.status(404).json({ message: "User does not exist"})
         }
 
         res.json(user)
     } catch(error) {
-        res.status(500).json({ message: "Internal Server Error", error})
+        console.error("Get User Profile Error:", error)
+        res.status(500).json({ message: "Internal Server Error", error: error.message })
     }
 }
 

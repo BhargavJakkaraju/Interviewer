@@ -15,7 +15,7 @@ exports.addQuestionsToSession = async (req, res) => {
             return res.status(404).json({ message: "Session not found"})
         }
 
-        const createdQuesetions = await Question.insertMany(
+        const createdQuestions = await Question.insertMany(
             questions.map((q) => ({
                 session: sessionId, 
                 question: q.question,
@@ -23,12 +23,13 @@ exports.addQuestionsToSession = async (req, res) => {
             }))
         )
 
-        session.questions.push(...createdQuesetions.map((q) => q._id));
+        session.questions.push(...createdQuestions.map((q) => q._id));
         await session.save()
 
-        res.status(201).json(createdQuesetions)
+        res.status(201).json(createdQuestions)
     } catch( error) {
-        res.status(500).json({ success: false,  message: "Internal Server error" })
+        console.error("Add Questions Error:", error)
+        res.status(500).json({ success: false,  message: "Internal Server error", error: error.message })
     }
 }
 
@@ -40,12 +41,13 @@ exports.togglePinQuestions = async (req, res) => {
             return res.status(404).json({ message: "Question not found"})
         }
 
-        question.isPinned != question.isPinned
+        question.isPinned = !question.isPinned
         await question.save()
 
         res.status(200).json({ success: true, question});
     } catch( error) {
-        res.status(500).json({ success: false,  message: "Internal Server error" })
+        console.error("Toggle Pin Error:", error)
+        res.status(500).json({ success: false,  message: "Internal Server error", error: error.message })
     }
 }
 
@@ -56,7 +58,7 @@ exports.updateQuestionNote = async (req, res) => {
 
         const question = await Question.findById(questionId)
         if (!question) {
-            return res.status(404).json({ succes: false,  message: "Question not found"})
+            return res.status(404).json({ success: false,  message: "Question not found"})
         }
 
         question.note = note || ""
@@ -66,6 +68,7 @@ exports.updateQuestionNote = async (req, res) => {
         res.status(200).json({ success: true, question})
 
     } catch( error) {
-        res.status(500).json({ success: false,  message: "Internal Server error" })
+        console.error("Update Note Error:", error)
+        res.status(500).json({ success: false,  message: "Internal Server error", error: error.message })
     }
 }
