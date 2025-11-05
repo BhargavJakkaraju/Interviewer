@@ -58,6 +58,14 @@ const CreateSessionForm = () => {
             type='number'
         />
 
+        <Input
+            value={formData.topicsToFocus}
+            onChange={({ target }) => handleChange("role", target.value)}
+            label="Topics to Focus"
+            placeHolder='React.js, Routes, Database'
+            type='text'
+        />
+
     </form>
   </div>
 }
