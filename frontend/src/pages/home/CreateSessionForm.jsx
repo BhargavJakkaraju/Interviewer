@@ -33,15 +33,15 @@ const CreateSessionForm = () => {
         setError("")
 
     }
-  return <div className=''>
-    <h3 className=''>
+  return <div className='w-[90vw] md:w-[35vw] p-7 flex flex-col justify-center'>
+    <h3 className='text-lg font-semibold text-black'>
         New Interview Prep
     </h3>
-    <p className=''>
+    <p className='text-xs text-slate-700 mt-[5px] mb-3'>
         Fill out the following fields
     </p>
 
-    <form onSubmit={handleCreateSession} className=''>
+    <form onSubmit={handleCreateSession} className='flex flex-col gap-3'>
         <Input
             value={formData.role}
             onChange={({ target }) => handleChange("role", target.value)}
@@ -74,11 +74,11 @@ const CreateSessionForm = () => {
             type='text'
         /> 
 
-        {error && <p className=''> {error}</p>}
+        {error && <p className='text-red-500 text-xs pb-2.5'> {error}</p>}
 
         <button 
             type="submit"
-            className=""
+            className="btn-primary w-full mt-2"
             disabled={isLoading}
         >
             Create Session
