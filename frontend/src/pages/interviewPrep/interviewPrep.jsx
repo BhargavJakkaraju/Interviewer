@@ -6,6 +6,15 @@ import { LuCircleAlert, LuListCollage} from 'react-icons/lu'
 import { toast } from 'react-hot-toast'
 
 const InterviewPrep = () => {
+  const { sessionId } = useParams()
+  const [sessionData, setSessionData] = useState(null)
+  const [errorMessage, setErrorMessage] = useState("")
+  const [openLMD, setOpenLMD] = useState(false)
+  const [explanation, setExplanation] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [isUpdateLoader, setIsUpdateLoader] = useState(false)
+
+  const fetchSessionDetailsByID = async () => {}
   return (
     <div>interviewPrep</div>
   )
