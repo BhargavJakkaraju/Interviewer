@@ -5,6 +5,7 @@ import {AnimatePresence, motion} from 'framer-motion'
 import { LuCircleAlert, LuListCollage} from 'react-icons/lu'
 import { toast } from 'react-hot-toast'
 import DashboardLayout from '../../components/layouts/DashboardLayout'
+import RoleInfoHeader from './components/RoleInfoHeader'
 
 const InterviewPrep = () => {
   const { sessionId } = useParams()
