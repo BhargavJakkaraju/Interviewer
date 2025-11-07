@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useParams } from 'react-router-dom'
 import moment from 'moment'
 import {AnimatePresence, motion} from 'framer-motion'
 import { LuCircleAlert, LuListCollage} from 'react-icons/lu'
 import { toast } from 'react-hot-toast'
+import DashboardLayout from '../../components/layouts/DashboardLayout'
 
 const InterviewPrep = () => {
   const { sessionId } = useParams()
@@ -28,7 +29,18 @@ const InterviewPrep = () => {
   }, [])
 
   return (
-    <div>interviewPrep</div>
+    <DashboardLayout>
+      <RoleInfoHeader
+        role={sessionData?.role || ""}
+        topicsToFoucs={sessionData?.topicsToFoucs || ""}
+        experience={sessionData?.experience || "-"}
+        questions={sessionData?.question || "-"}
+        description={sessionData?.description || ""}
+        lastUpdated={
+          sessionData?.udpated ? moment(sessionData.updatedAt).format("Do MMM YYYY") : ""
+        }
+      />
+    </DashboardLayout>
   )
 }
 
