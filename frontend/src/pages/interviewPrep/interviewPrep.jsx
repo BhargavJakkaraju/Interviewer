@@ -19,7 +19,14 @@ const InterviewPrep = () => {
   const toggleQuestionPinStatus = async (questionID) => {}
   const uploadMoreQuestions = async () => {}
 
-  
+  useEffect(() => {
+    if (sessionId) {
+      fetchSessionDetailsByID()
+    }
+
+    return () => {}
+  }, [])
+
   return (
     <div>interviewPrep</div>
   )
