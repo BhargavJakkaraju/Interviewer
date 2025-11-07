@@ -15,6 +15,11 @@ const InterviewPrep = () => {
   const [isUpdateLoader, setIsUpdateLoader] = useState(false)
 
   const fetchSessionDetailsByID = async () => {}
+  const generateConceptExplanation = async (question) => {}
+  const toggleQuestionPinStatus = async (questionID) => {}
+  const uploadMoreQuestions = async () => {}
+
+  
   return (
     <div>interviewPrep</div>
   )
