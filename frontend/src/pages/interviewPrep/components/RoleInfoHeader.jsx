@@ -1,6 +1,13 @@
 import React from 'react'
 
-const RoleInfoHeader = () => {
+const RoleInfoHeader = ({
+    role,
+    topicsToFocus,
+    experience,
+    description,
+    questions,
+    lastUpdated
+}) => {
   return (
     <div>RoleInfoHeader</div>
   )
