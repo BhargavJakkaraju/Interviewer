@@ -47,12 +47,12 @@ const InterviewPrep = () => {
     <DashboardLayout>
       <RoleInfoHeader
         role={sessionData?.role || ""}
-        topicsToFoucs={sessionData?.topicsToFoucs || ""}
+        topicsToFocus={sessionData?.topicsToFoucs || ""}
         experience={sessionData?.experience || "-"}
-        questions={sessionData?.question || "-"}
+        questions={sessionData?.questions?.length || "-"}
         description={sessionData?.description || ""}
         lastUpdated={
-          sessionData?.udpated ? moment(sessionData.updatedAt).format("Do MMM YYYY") : ""
+          sessionData?.udpatedAt ? moment(sessionData.updatedAt).format("Do MMM YYYY") : ""
         }
       />
     </DashboardLayout>
