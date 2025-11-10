@@ -14,6 +14,7 @@ const RoleInfoHeader = ({
         <div className=''>
           <div className=''>
             <div className=''>
+              <div className=''>
               <h2 className=''>{role}</h2>
               <p className=''>
                 {topicsToFocus}
@@ -22,8 +23,30 @@ const RoleInfoHeader = ({
           </div>
         </div>
       </div>
+
+      <div className=''>
+        <div className=''>
+          Expereince: {experience == 1 ? "Year": "Years"}
+        </div>
+
+        <div className=''>
+          {questions} Q&A
+        </div>
+
+        <div className=''>
+          Last Updated: {lastUpdated}
+        </div>
+      </div>
+    </div>
+
+    <div className=''>
+      <div className='' />
+      <div className='' />
+      <div className='' />
+      <div className='' />
     </div>
   </div>
+</div>
 }
 
 export default RoleInfoHeader
