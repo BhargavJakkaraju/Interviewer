@@ -20,11 +20,13 @@ const UserProvider = ({ children }) => {
         }
 
         const fetchUser = async () => {
-            try{
+            try {
                 const response = await axiosInstance.get(API_PATHS.AUTH.GET_PROFILE)
                 setUser(response.data)
-            } catch(error) {
-                console.error("User not authorized", error)
+            } catch (error) {
+                if (error.response) {
+                    console.error("User not authorized", error)
+                }
                 clearuser()
             } finally {
                 setLoading(false)
@@ -46,7 +48,7 @@ const UserProvider = ({ children }) => {
     }
 
     return (
-        <UserContext.Provider value={{ user, loading, updateUser, clearuser}}>
+        <UserContext.Provider value={{ user, loading, updateUser, clearuser }}>
             {children}
         </UserContext.Provider>
     )
