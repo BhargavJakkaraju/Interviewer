@@ -6,6 +6,9 @@ import { LuCircleAlert, LuList} from 'react-icons/lu'
 import { toast } from 'react-hot-toast'
 import DashboardLayout from '../../components/layouts/DashboardLayout'
 import RoleInfoHeader from './components/RoleInfoHeader'
+import { response } from 'express'
+import axiosInstance from '../../utils/axiosInstance'
+import { API_PATHS } from '../../utils/apiPaths'
 
 const InterviewPrep = () => {
   const { sessionId } = useParams()
@@ -16,7 +19,18 @@ const InterviewPrep = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [isUpdateLoader, setIsUpdateLoader] = useState(false)
 
-  const fetchSessionDetailsByID = async () => {}
+  const fetchSessionDetailsByID = async () => {
+    try {
+      const response = await axiosInstance.get(API_PATHS.SESSION.GET_ONE(sessionId))
+      if (response.data && response.data.session) {
+        setSessionData(response.data.session)
+      }
+    } catch (error) {
+      console.error("Error: ", error)
+    }
+
+    
+  }
   const generateConceptExplanation = async (question) => {}
   const toggleQuestionPinStatus = async (questionID) => {}
   const uploadMoreQuestions = async () => {}
