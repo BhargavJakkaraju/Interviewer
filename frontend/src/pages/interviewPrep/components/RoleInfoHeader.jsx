@@ -8,9 +8,22 @@ const RoleInfoHeader = ({
     questions,
     lastUpdated
 }) => {
-  return (
-    <div>RoleInfoHeader</div>
-  )
+  return <div className=''>
+    <div className=''>
+      <div className=''>
+        <div className=''>
+          <div className=''>
+            <div className=''>
+              <h2 className=''>{role}</h2>
+              <p className=''>
+                {topicsToFocus}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 }
 
 export default RoleInfoHeader
