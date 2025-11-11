@@ -1,14 +1,14 @@
 export const CARD_BG = [
-    { id: 1, bgcolor: 'linear-gradient(135deg, #e6f8f3 0%, #f7fcfa 100%)' },
-    { id: 2, bgcolor: 'linear-gradient(135deg, #fef9e7 0%, #fffdf4 100%)' },
-    { id: 3, bgcolor: 'linear-gradient(135deg, #eaf7ff 0%, #f3fbff 100%)' },
-    { id: 4, bgcolor: 'linear-gradient(135deg, #fff2e9 0%, #fff8f3 100%)' },
-    { id: 5, bgcolor: 'linear-gradient(135deg, #e7f6fe 0%, #f4fafd 100%)' },
-    { id: 6, bgcolor: 'linear-gradient(135deg, #f5f5f5 0%, #fff8fd 100%)' },
-    { id: 7, bgcolor: 'linear-gradient(135deg, #fff4fc 0%, #fff8fd 100%)' },
-    { id: 8, bgcolor: 'linear-gradient(135deg, #e8fef3 0%, #f5fef8 100%)' },
-    { id: 9, bgcolor: 'linear-gradient(135deg, #f0ecff 0%, #f7f5ff 100%)' },
-    { id: 10, bgcolor: 'linear-gradient(135deg, #fef2f2 0%, #fff8f8 100%)' },
+    { id: 1, bgcolor: 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)' },
+    { id: 2, bgcolor: 'linear-gradient(135deg, #2a1f0f 0%, #3d2e1a 100%)' },
+    { id: 3, bgcolor: 'linear-gradient(135deg, #1a1f2a 0%, #2d3440 100%)' },
+    { id: 4, bgcolor: 'linear-gradient(135deg, #2a1f1a 0%, #3d2e28 100%)' },
+    { id: 5, bgcolor: 'linear-gradient(135deg, #1a1f2a 0%, #2a3440 100%)' },
+    { id: 6, bgcolor: 'linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%)' },
+    { id: 7, bgcolor: 'linear-gradient(135deg, #2a1f28 0%, #3d2d35 100%)' },
+    { id: 8, bgcolor: 'linear-gradient(135deg, #1a2a1f 0%, #2d3d2e 100%)' },
+    { id: 9, bgcolor: 'linear-gradient(135deg, #1f1a2a 0%, #2d283d 100%)' },
+    { id: 10, bgcolor: 'linear-gradient(135deg, #2a1a1a 0%, #3d2828 100%)' },
   ];
   
 

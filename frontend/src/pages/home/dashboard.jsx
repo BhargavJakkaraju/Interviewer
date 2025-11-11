@@ -95,14 +95,14 @@ const Dashboard = () => {
         title="Delete Session"
       >
         <div className='p-6'>
-          <p className='text-sm text-gray-700 mb-6'>
-            Are you sure you want to delete the session for <span className='font-semibold text-gray-900'>"{openDeleteAlert.data?.role}"</span>? This action cannot be undone and will delete all associated questions.
+          <p className='text-sm text-gray-300 mb-6'>
+            Are you sure you want to delete the session for <span className='font-semibold text-white'>"{openDeleteAlert.data?.role}"</span>? This action cannot be undone and will delete all associated questions.
           </p>
           
           <div className='flex justify-end gap-3'>
             <button
               onClick={() => setOpenDeleteAlert({ open: false, data: null })}
-              className='px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-md transition-colors'
+              className='px-4 py-2 text-sm font-medium text-gray-300 bg-gray-700 hover:bg-gray-600 rounded-md transition-colors'
             >
               Cancel
             </button>

@@ -8,21 +8,21 @@ const RoleInfoHeader = ({
   questions,
   lastUpdated
 }) => {
-  return <div className='bg-white relative'>
+  return <div className='bg-black relative'>
     <div className='container mx-auto px-10 md:px-0 relative z-[2]'>
       <div className='h-[200px] flex flex-col justify-center relative z-10'>
         <div className='flex items-start'>
           <div className='flex-grow'>
             <div className='flex justify-between items-start'>
               <div>
-                {role && <h2 className='text-2xl font-medium'>{role}</h2>}
+                {role && <h2 className='text-2xl font-medium text-white'>{role}</h2>}
                 {description && description.trim() && (
-                  <p className='text-sm text-gray-600 mt-2 mb-1'>
+                  <p className='text-sm text-gray-300 mt-2 mb-1'>
                     {description}
                   </p>
                 )}
                 {topicsToFocus && topicsToFocus.trim() && (
-                  <p className='text-sm text-medium text-gray-900 mt-1'>
+                  <p className='text-sm text-medium text-gray-300 mt-1'>
                     {topicsToFocus}
                   </p>
                 )}
@@ -32,15 +32,15 @@ const RoleInfoHeader = ({
         </div>
 
         <div className='flex items-center gap-3 mt-4'>
-          <div className='text-[10px] font-semibold text-white bg-black px-3 py-1 rounded-full'>
+          <div className='text-[10px] font-semibold text-black bg-orange-500 px-3 py-1 rounded-full'>
             Experience: {experience == 1 ? "Year" : "Years"}
           </div>
 
-          <div className='text-[10px] font-semibold text-white bg-black px-3 py-1 rounded-full'>
+          <div className='text-[10px] font-semibold text-black bg-orange-500 px-3 py-1 rounded-full'>
             {questions} Q&A
           </div>
 
-          <div className='text-[10px] font-semibold text-white bg-black px-3 py-1 rounded-full'>
+          <div className='text-[10px] font-semibold text-black bg-orange-500 px-3 py-1 rounded-full'>
             Last Updated: {lastUpdated}
           </div>
         </div>

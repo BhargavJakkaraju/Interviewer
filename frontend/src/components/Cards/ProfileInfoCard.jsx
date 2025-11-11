@@ -15,10 +15,10 @@ const ProfileInfoCard = () => {
     user && 
     <div className='flex items-center'>
         <div>
-            <div className='text-[15px] text-black font-bold loading-3'>
+            <div className='text-[15px] text-white font-bold loading-3'>
                 {user.name || ''}
             </div>
-            <button className='text-amber-600 text-sm font-semibold cursor-pointer hover:underline' onClick={handleLogout}> Logout </button>
+            <button className='text-orange-500 text-sm font-semibold cursor-pointer hover:underline' onClick={handleLogout}> Logout </button>
         </div>
     </div>
   )

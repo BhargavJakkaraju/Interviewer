@@ -63,8 +63,8 @@ const SignUp = ({setCurrentPage}) => {
   }
 
   return <div className='w-[90vm] md:w-[33vm] p-7 flex flex-col justify-center'>
-    <h3 className='text-lg font-semibold text-black'>Create Your Account</h3>
-    <p className='text-xs text-slate-700 mt-[5px] mb-6'>
+    <h3 className='text-lg font-semibold text-white'>Create Your Account</h3>
+    <p className='text-xs text-gray-400 mt-[5px] mb-6'>
       Enter your personal details below
     </p>
 
@@ -102,9 +102,9 @@ const SignUp = ({setCurrentPage}) => {
         Sign Up
       </button>
 
-      <p className='text-[13px] text-slate-800 mt-3'>
+      <p className='text-[13px] text-gray-400 mt-3'>
         Already have an account?{" "}
-        <button className='font-medium text-primary underline cursor-pointer' onClick={() => { setCurrentPage("login")}}>
+        <button className='font-medium text-orange-500 underline cursor-pointer' onClick={() => { setCurrentPage("login")}}>
           Login
         </button>
       </p>
